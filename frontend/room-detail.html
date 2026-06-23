@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle de Habitación — Hotel Club Penguin</title>
+  <meta name="description" content="Detalles de la habitación e iglú en el Hotel Club Penguin." />
+  <!-- Google Fonts para estilo Club Penguin -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <style>
+    .detail-card {
+      background: #ffffff;
+      color: #333333;
+      border: 4px solid var(--cp-blue-dark);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 0 rgba(0, 0, 0, 0.15);
+      margin-top: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .detail-image-wrapper {
+      width: 100%;
+      height: 380px;
+      position: relative;
+      background: #e0f2ff;
+      border-bottom: 4px solid var(--cp-blue-dark);
+    }
+
+    .detail-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-body {
+      padding: 30px;
+    }
+
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      gap: 15px;
+    }
+
+    .detail-title {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      color: var(--cp-blue-dark);
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .detail-price-badge {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      color: var(--cp-orange);
+      background: #fff5ee;
+      border: 2px solid #ffd8c0;
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .detail-description {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #444444;
+      margin-bottom: 24px;
+    }
+
+    .detail-features-box {
+      background: #f0f7ff;
+      border: 2px dashed #99ccff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .detail-features-title {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: #0044cc;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .detail-features-list li {
+      font-size: 0.95rem;
+      color: #555555;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-back {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 14px;
+      cursor: pointer;
+      background: #ffffff;
+      border: 3px solid var(--cp-blue-dark);
+      color: var(--cp-blue-dark);
+      box-shadow: 0 4px 0 var(--cp-blue-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-back:hover {
+      background: #e6f2ff;
+    }
+
+    .btn-back:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--cp-blue-dark);
+    }
+
+    .btn-reserve-room {
+      width: 100%;
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 700;
+      padding: 14px;
+      border-radius: 18px;
+      cursor: pointer;
+      background: linear-gradient(180deg, #ffcc00 0%, #ff8800 100%);
+      border: 4px solid #cc7700;
+      color: #2b1a00;
+      box-shadow: 0 6px 0 #995500, 0 10px 20px rgba(0,0,0,0.15);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-reserve-room:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #995500, 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .btn-reserve-room:active:not(:disabled) {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #995500;
+    }
+
+    .btn-reserve-room:disabled {
+      background: #cccccc;
+      border-color: #999999;
+      color: #666666;
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Modal de alerta */
+    .alert-dialog-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 31, 87, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .alert-dialog-overlay.active {
+      display: flex;
+    }
+
+    .alert-dialog-box {
+      background: linear-gradient(180deg, #0055ff 0%, #002288 100%);
+      border: 5px solid var(--cp-blue-sky);
+      border-radius: 24px;
+      max-width: 440px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      color: white;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transform: scale(0.9);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .alert-dialog-overlay.active .alert-dialog-box {
+      transform: scale(1);
+    }
+
+    .alert-dialog-icon {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+    }
+
+    .alert-dialog-title {
+      font-family: var(--font-title);
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 0 var(--cp-blue-dark);
+    }
+
+    .alert-dialog-message {
+      font-size: 0.95rem;
+      color: #cce0ff;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    .btn-dialog-confirm {
+      width: 100%;
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      background: linear-gradient(180deg, #00cc33 0%, #009922 100%);
+      border: 3px solid #007711;
+      color: white;
+      box-shadow: 0 4px 0 #005500;
+    }
+
+    .btn-dialog-confirm:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #005500;
+    }
+
+    @media (max-width: 768px) {
+      .detail-image-wrapper {
+        height: 250px;
+      }
+      .detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .detail-price-badge {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body class="dashboard-body">
+
+  <!-- Navbar -->
+  <nav class="db-nav">
+    <div class="db-brand">
+      Club<span class="brand-accent"> Penguin Hotel 🐧</span>
+    </div>
+    <div class="db-nav-right">
+      <div class="db-user-badge">
+        <div class="avatar" id="nav-avatar">🐧</div>
+        <span class="name-text" id="nav-name">Cargando...</span>
+      </div>
+      <button class="btn-logout" id="logout-btn">Cerrar Sesión 🚪</button>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="db-main" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+
+    <!-- Back Button -->
+    <a href="client-dashboard.html" class="btn-back">
+      ⬅ Volver al listado
+    </a>
+
+    <!-- Detail Container -->
+    <div id="detail-loader" style="text-align: center; padding: 60px 0;">
+      <div class="spinner" style="margin: 0 auto;"></div>
+      <p style="margin-top: 15px; font-weight: 700; color: #a2c2ff;">Cargando detalles de la habitación...</p>
+    </div>
+
+    <div class="detail-card" id="detail-card-el" style="display: none;">
+      <div class="detail-image-wrapper">
+        <img src="" alt="Habitación" class="detail-image" id="detail-image-el">
+      </div>
+      <div class="detail-body">
+        <div class="detail-header">
+          <div>
+            <h1 class="detail-title" id="detail-title-el">Nombre Habitación</h1>
+          </div>
+          <div class="detail-price-badge" id="detail-price-el">L. 0 / Noche</div>
+        </div>
+
+        <p class="detail-description" id="detail-desc-el">
+          Descripción completa de la habitación.
+        </p>
+
+        <div class="detail-features-box">
+          <h3 class="detail-features-title">✨ Comodidades incluidas:</h3>
+          <ul class="detail-features-list" id="detail-features-el">
+            <!-- Cargados por JS -->
+          </ul>
+        </div>
+
+        <button class="btn-reserve-room" id="btn-reserve-el">
+          🛎️ Reservar Habitación
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal de Selección de Fechas -->
+  <div class="alert-dialog-overlay" id="reservation-modal">
+    <div class="alert-dialog-box" style="max-width: 500px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 class="alert-dialog-title" style="margin: 0; font-size: 1.5rem;">Fechas de Reserva</h3>
+        <button id="btn-close-reservation" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+      
+      <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+        <div style="flex: 1;">
+          <label style="display: block; margin-bottom: 5px; color: #cce0ff; font-weight: bold;">Llegada:</label>
+          <input type="date" id="date-start" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid var(--cp-blue-sky); font-family: var(--font-body); font-size: 1rem;">
+        </div>
+        <div style="flex: 1;">
+          <label style="display: block; margin-bottom: 5px; color: #cce0ff; font-weight: bold;">Salida:</label>
+          <input type="date" id="date-end" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid var(--cp-blue-sky); font-family: var(--font-body); font-size: 1rem;">
+        </div>
+      </div>
+      
+      <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <span style="color: #cce0ff;">Total por <span id="days-count">0</span> noches:</span>
+        </div>
+        <div style="font-size: 1.4rem; font-weight: bold; color: #00ff55;" id="total-price-el">L. 0</div>
+      </div>
+
+      <button class="btn-dialog-confirm" id="btn-confirm-reservation" disabled>Confirmar Reserva</button>
+    </div>
+  </div>
+
+  <!-- Modal de Alerta de Éxito -->
+  <div class="alert-dialog-overlay" id="success-modal">
+    <div class="alert-dialog-box">
+      <div class="alert-dialog-icon">🎉</div>
+      <h3 class="alert-dialog-title">¡Reserva Exitosa!</h3>
+      <p class="alert-dialog-message" id="success-modal-message">
+        Tu reservación ha sido guardada. El personal del Hotel Penguin ya preparó tu llave de iglú.
+      </p>
+      <button class="btn-dialog-confirm" id="btn-success-close">¡EXCELENTE! 🐧</button>
+    </div>
+  </div>
+
+  <script src="js/room-detail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Club Penguin </title>
+  <meta name="description"
+    content="Bienvenido a tu aventura en el mejor hotel con temática de Club Penguin. ¡Reserva hoy!" />
+  <!-- Fuentes estilo Club Penguin -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="hotel-page">
+
+  <!-- ==========================================
+       PÁGINA PRINCIPAL DEL HOTEL
+       ========================================== -->
+  <div class="game-container">
+
+    <!-- Top Header Bar (Logo & Auth Buttons) -->
+    <header class="top-header">
+      <div class="brand-container">
+        <div class="hotel-logo">
+          <div class="logo-circle">
+            <!-- Icono o ilustración de pingüino en círculo azul -->
+            <img src="img/penguin_mascot.png" alt="Mascota Pingüino" class="logo-penguin-img" />
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">HOTEL PENGUIN</span>
+            <span class="logo-subtitle">PARADISE</span>
+            <div class="stars">⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú de Navegación del Juego -->
+      <nav class="game-nav">
+        <ul>
+          <li><a href="#" class="nav-btn active"><span class="btn-icon">🏠</span> INICIO</a></li>
+          <li><a href="#habitaciones" class="nav-btn"><span class="btn-icon">🛎️</span> HABITACIONES</a></li>
+          <li><a href="#" class="nav-btn open-login-btn"><span class="btn-icon">📅</span> RESERVAS</a></li>
+        </ul>
+      </nav>
+
+      <div class="auth-buttons">
+        <button class="header-btn btn-login open-login-btn">
+          <span class="user-icon">👤</span> INICIAR SESIÓN
+        </button>
+        <a href="register.html" class="header-btn btn-register">
+          <span class="register-icon">👤➕</span> REGISTRARSE
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Hero Area -->
+    <main class="hero-area">
+      <!-- Welcome Panel -->
+      <div class="welcome-panel">
+        <h1 class="welcome-title">¡BIENVENIDO A TU AVENTURA EN EL MEJOR HOTEL!</h1>
+        <p class="welcome-desc">Disfruta de unas vacaciones increíbles llenas de diversión y comodidad en el hotel más
+          helado de la isla.</p>
+
+        <div class="welcome-actions">
+          <button class="hero-action-btn btn-reserve-now open-login-btn">
+            <span class="icon">🔔</span> RESERVAR AHORA
+          </button>
+          <button class="hero-action-btn btn-promotions">
+            <span class="icon">🎁</span> VER PROMOCIONES
+          </button>
+        </div>
+      </div>
+
+      <!-- Mascot & Pool Scene (Middle/Left Decor) -->
+      <div class="pool-scene">
+        <!-- Pingüino verde con auriculares -->
+        <div class="penguin-green-decor">
+          <div class="penguin-bubble">¡Sube el volumen a la diversión! 🎧</div>
+          <span class="penguin-emoji">🐧💚</span>
+        </div>
+
+        <!-- Piscina central -->
+        <div class="pool-water">
+          <div class="penguin-pool-1">🕶️🐧🍹</div>
+          <div class="penguin-pool-2">🐧💜🧣</div>
+        </div>
+      </div>
+
+      <!-- Hotel Building and Buttons Mascot (Right Decor) -->
+      <div class="hotel-building-decor">
+        <!-- Cartelera flotante de bienvenida a la derecha -->
+        <div class="welcome-bubble-box open-login-btn">
+          <div class="p-avatar">🐧💜</div>
+          <div class="p-text">
+            <strong>¡Hola, Pingüino!</strong>
+            <span>Inicia sesión para ver tus reservas y puntos.</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+
+
+    <!-- Sección de Habitaciones Reales / Detalles -->
+    <section class="rooms-gallery" id="habitaciones">
+      <div class="gallery-header">
+        <h2>HABITACIONES DEL RESORT</h2>
+        <p>Vive la experiencia real del confort polar en nuestras suites de lujo combinadas con la magia del juego</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="img/habitacion_hotel_1.png" alt="Suite Iglú Deluxe" class="room-real-img" />
+          <div class="room-overlay">
+            <h3>Suite Iglú Deluxe</h3>
+            <p>Una hermosa suite de hielo con vistas espectaculares a las auroras boreales.</p>
+            <div class="room-footer-row">
+              <span class="room-tag">L. 350 / Noche</span>
+              <button class="room-reserve-btn open-login-btn">Reservar Cuarto 🛎️</button>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/habitacion_hotel_2.png" alt="Cabaña Ventisca" class="room-real-img" />
+          <div class="room-overlay">
+            <h3>Cabaña Ventisca</h3>
+            <p>Cabaña rústica con balcón privado y fogata de gas.</p>
+            <div class="room-footer-row">
+              <span class="room-tag">L. 250 / Noche</span>
+              <button class="room-reserve-btn open-login-btn">Reservar Cuarto 🛎️</button>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/habitacion_hotel_3.png" alt="Domo Glaciar Premium" class="room-real-img" />
+          <div class="room-overlay">
+            <h3>Domo Glaciar Premium</h3>
+            <p>Domo geodésico de cristal reforzado ubicado en la cima del glaciar más alto.</p>
+            <div class="room-footer-row">
+              <span class="room-tag">L. 500 / Noche</span>
+              <button class="room-reserve-btn open-login-btn">Reservar Cuarto 🛎️</button>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/habitacion_hotel_4.png" alt="Refugio Ventisquero" class="room-real-img" />
+          <div class="room-overlay">
+            <h3>Refugio Ventisquero</h3>
+            <p>Un refugio acogedor perfecto para aventureros de la isla.</p>
+            <div class="room-footer-row">
+              <span class="room-tag">L. 180 / Noche</span>
+              <button class="room-reserve-btn open-login-btn">Reservar Cuarto 🛎️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </div>
+
+  <!-- ==========================================
+       MODAL DE INICIAR SESIÓN (CLUB PENGUIN THEME)
+       ========================================== -->
+  <div class="login-modal-overlay" id="login-modal">
+    <div class="login-modal-box">
+      <button class="close-modal-btn" id="close-login-btn">×</button>
+
+      <!-- Brand/Logo inside modal -->
+      <div class="modal-brand">
+        <div class="modal-logo-icon">🐧</div>
+        <h2 class="modal-brand-name">HOTEL PENGUIN</h2>
+        <span class="modal-brand-sub">INICIAR SESIÓN</span>
+      </div>
+
+      <p class="modal-desc">Ingresa tus credenciales para reservar tu cuarto iglú</p>
+
+      <!-- Alert box para mensajes del script login.js -->
+      <div id="alert-box"></div>
+
+      <!-- Formulario oficial (compatible con login.js) -->
+      <form id="login-form" novalidate autocomplete="on">
+
+        <div class="form-group">
+          <label class="form-label" for="email">Correo Electrónico</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="ejemplo@correo.com"
+            autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Contraseña</label>
+          <div class="input-wrapper">
+            <input class="form-input" type="password" id="password" name="password" placeholder="Tu contraseña"
+              autocomplete="current-password" required />
+            <button type="button" class="toggle-password" id="toggle-pass" aria-label="Mostrar/ocultar contraseña">
+              👁
+            </button>
+          </div>
+        </div>
+
+        <div class="forgot-link">
+          <a href="forgot.html">¿Olvidaste tu usuario o contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn-submit-game" id="submit-btn">
+          ENTRAR AL HOTEL
+        </button>
+
+      </form>
+
+      <div class="form-footer">
+        ¿No tienes cuenta? <a href="register.html">Regístrate aquí</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para la interacción del modal y login.js -->
+  <script>
+    // Lógica para abrir/cerrar el modal
+    const loginModal = document.getElementById('login-modal');
+    const openBtns = document.querySelectorAll('.open-login-btn');
+    const closeBtn = document.getElementById('close-login-btn');
+
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      loginModal.classList.remove('active');
+    });
+
+    // Cerrar al hacer clic fuera de la caja
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.classList.remove('active');
+      }
+    });
+
+    // Si viene de otra página con #login, abrir el modal automáticamente
+    if (window.location.hash === '#login') {
+      loginModal.classList.add('active');
+    }
+
+    // Auto-scroll del carrusel de habitaciones
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (galleryGrid) {
+      setInterval(() => {
+        // Calcula el ancho de un item para hacer scroll
+        const scrollAmount = galleryGrid.clientWidth * 0.8;
+        
+        // Si llega al final, regresa al inicio suavemente
+        if (galleryGrid.scrollLeft + galleryGrid.clientWidth >= galleryGrid.scrollWidth - 10) {
+          galleryGrid.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          // Si no, avanza un item
+          galleryGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      }, 3500); // cada 3.5 segundos
+    }
+  </script>
+  <script src="js/login.js"></script>
+</body>
+
+</html>

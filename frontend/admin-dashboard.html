@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración — Hotel Club Penguin</title>
+  <meta name="description" content="Panel de administración del Hotel Club Penguin." />
+  <!-- Google Fonts para estilo Club Penguin -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <style>
+    /* Estilos del panel de administrador */
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: #ffffff;
+      color: #333333;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .admin-table th, .admin-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 2px solid #eef5fc;
+    }
+
+    .admin-table th {
+      background-color: var(--cp-blue-dark);
+      color: #ffffff;
+      font-family: var(--font-title);
+      font-weight: 600;
+    }
+
+    .admin-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .admin-table tbody tr:hover {
+      background-color: #f7faff;
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .badge-status.disponible {
+      background-color: #e6ffed;
+      color: #008822;
+      border: 1px solid #a3f7bf;
+    }
+
+    .badge-status.ocupada {
+      background-color: #ffeef0;
+      color: #cc0022;
+      border: 1px solid #f7c3c8;
+    }
+
+    .btn-action-sm {
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+
+    .btn-action-sm.liberar {
+      background: linear-gradient(180deg, #00cc33 0%, #009922 100%);
+      border: 2px solid #007711;
+      color: white;
+      box-shadow: 0 2px 0 #005500;
+    }
+
+    .btn-action-sm.ocupar {
+      background: linear-gradient(180deg, #ff6600 0%, #dd5500 100%);
+      border: 2px solid #b33c00;
+      color: white;
+      box-shadow: 0 2px 0 #802b00;
+    }
+
+    .btn-action-sm:active {
+      transform: translateY(1px);
+      box-shadow: none;
+    }
+
+    /* Historial Feed */
+    .history-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-top: 15px;
+      padding-right: 5px;
+    }
+
+    .history-item {
+      background: #f7faff;
+      border-left: 5px solid var(--cp-blue-sky);
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: #333333;
+      font-size: 0.92rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .history-item.reserva {
+      border-left-color: var(--cp-green);
+      background: #f6fff8;
+    }
+
+    .history-item.cambio_estado {
+      border-left-color: var(--cp-orange);
+      background: #fffbf5;
+    }
+
+    .history-text {
+      line-height: 1.4;
+    }
+
+    .history-date {
+      font-size: 0.78rem;
+      color: #888888;
+      white-space: nowrap;
+    }
+
+    .history-empty {
+      text-align: center;
+      padding: 30px;
+      color: #888888;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body class="dashboard-body admin-body">
+
+  <!-- Navbar -->
+  <nav class="db-nav" style="background: linear-gradient(135deg, #002266, #001133); border-bottom: 4px solid var(--cp-yellow);">
+    <div class="db-brand">
+      Club<span class="brand-accent" style="color: var(--cp-yellow);"> Penguin Hotel [ADMIN]</span>
+    </div>
+    <div style="display: flex; gap: 15px; margin-left: 30px;">
+      <button class="btn-action-sm" id="nav-btn-rooms" style="background: var(--cp-blue-sky); border: 2px solid white; color: white;">Control Habitaciones 🛏️</button>
+      <button class="btn-action-sm" id="nav-btn-finance" style="background: transparent; border: 2px solid var(--cp-blue-sky); color: #cce0ff;">Finanzas & Usuarios 💰</button>
+    </div>
+    <div class="db-nav-right" style="margin-left: auto;">
+      <div class="db-user-badge">
+        <div class="avatar" id="nav-avatar" style="background: var(--cp-yellow); color: #2b1a00; font-weight: bold;">👑</div>
+        <span class="name-text" id="nav-name">Cargando...</span>
+      </div>
+      <button class="btn-logout" id="logout-btn">Cerrar Sesión 🚪</button>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="db-main" style="max-width: 100%; padding: 20px 40px;">
+
+    <!-- VISTA 1: CONTROL DE HABITACIONES (DEFAULT) -->
+    <div id="view-rooms" style="display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; margin-top: 20px;">
+      
+      <!-- Left Column: Stats & History -->
+      <div>
+        <!-- Stats -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+          <div class="admin-stat-simple">
+            <h2 style="font-size: 1.1rem; color: #cce0ff; text-transform: uppercase; letter-spacing: 1px;">Habitaciones Disponibles</h2>
+            <div style="font-size: 2.8rem; font-weight: 900; color: #00ff55; text-shadow: 0 2px 4px rgba(0,0,0,0.5);" id="available-count">—</div>
+          </div>
+          <div class="admin-stat-simple">
+            <h2 style="font-size: 1.1rem; color: #cce0ff; text-transform: uppercase; letter-spacing: 1px;">Habitaciones Ocupadas</h2>
+            <div style="font-size: 2.8rem; font-weight: 900; color: #ff4466; text-shadow: 0 2px 4px rgba(0,0,0,0.5);" id="occupied-count">—</div>
+          </div>
+        </div>
+
+        <!-- History -->
+        <div class="admin-section">
+          <h2 style="color: var(--cp-yellow); font-size: 1.5rem; margin-bottom: 5px;">Historial de Movimientos</h2>
+          <p style="color: #e0f0ff; font-size: 0.95rem; margin-bottom: 15px;">Registro cronológico de reservas y cambios.</p>
+          <div class="history-feed" id="history-feed-container">
+            <div class="history-empty">Cargando historial...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Room List -->
+      <div>
+        <div class="admin-section">
+          <h2 style="color: var(--cp-yellow); font-size: 1.5rem; margin-bottom: 5px;">Listado y Control de Habitaciones</h2>
+          <p style="color: #e0f0ff; font-size: 0.95rem; margin-bottom: 15px;">Visualiza y cambia el estado de las habitaciones del hotel.</p>
+          <div style="overflow-x: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Habitación</th>
+                  <th>Precio por Noche</th>
+                  <th>Estado</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="rooms-table-body">
+                <tr>
+                  <td colspan="4" style="text-align: center; color: #666; padding: 20px;">Cargando lista de habitaciones...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VISTA 2: FINANZAS Y USUARIOS (OCULTA POR DEFAULT) -->
+    <div id="view-finance" style="display: none; margin-top: 20px;">
+      <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 40px; align-items: start;">
+        
+        <!-- Left: Financial Stat -->
+        <div class="admin-section">
+          <h2 style="color: var(--cp-yellow); font-size: 1.5rem; margin-bottom: 5px;">Ingresos Totales</h2>
+          <p style="color: #e0f0ff; font-size: 0.9rem; margin-bottom: 15px;">Ganancias totales acumuladas por reservas.</p>
+          <div style="font-size: 2.5rem; font-weight: 900; color: #00ff55; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: 10px 0;" id="total-revenue-el">L. 0</div>
+        </div>
+
+        <!-- Right: Users Table & Their Reservations / Payments -->
+        <div class="admin-section">
+          <h2 style="color: var(--cp-yellow); font-size: 1.5rem; margin-bottom: 5px;">Reporte de Clientes y Reservas</h2>
+          <p style="color: #e0f0ff; font-size: 0.9rem; margin-bottom: 15px;">Visualiza las habitaciones reservadas por cada cliente y su estado de pagos.</p>
+          
+          <div style="overflow-x: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Email</th>
+                  <th>Habitaciones Reservadas</th>
+                  <th>Total Pagado</th>
+                </tr>
+              </thead>
+              <tbody id="finance-table-body">
+                <tr>
+                  <td colspan="4" style="text-align: center; color: #666; padding: 20px;">Cargando reporte financiero...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/admin-dashboard.js"></script>
+</body>
+
+</html>

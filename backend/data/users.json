@@ -1,0 +1,93 @@
+[
+  {
+    "id": "admin-id-test-0001",
+    "name": "Administrador",
+    "email": "admin@gmail.com",
+    "password": "$2a$10$iQbVZZ9IedQc31uSss0xY.i17TNj9/E2KGGQhhwqFe4EbL8JRWodC",
+    "role": "admin",
+    "verified": true,
+    "verificationToken": null,
+    "resetToken": null,
+    "resetTokenExpiry": null,
+    "createdAt": "2026-06-21T01:45:00.000Z"
+  },
+  {
+    "id": "client-id-test-0002",
+    "name": "Cliente de Prueba",
+    "email": "cliente@gmail.com",
+    "password": "$2a$10$iQbVZZ9IedQc31uSss0xY.i17TNj9/E2KGGQhhwqFe4EbL8JRWodC",
+    "role": "client",
+    "verified": true,
+    "verificationToken": null,
+    "resetToken": null,
+    "resetTokenExpiry": null,
+    "createdAt": "2026-06-21T01:45:00.000Z"
+  },
+  {
+    "id": "388b182c-4587-4ad3-b315-04eb63b21b94",
+    "name": "brenda santiago",
+    "email": "bresantiago6@gmail.com",
+    "password": "$2a$12$3x3vJqTbxPH26L64DsgW3OkMc.GLW/6BgW90OsW9goAlWmCF5.YQy",
+    "verified": false,
+    "verificationToken": "ae30f148-35aa-422b-a000-059895284b8f",
+    "resetToken": "03f3afe6-c489-4ad1-9723-730106afb06f",
+    "resetTokenExpiry": "2026-06-16T03:40:55.616Z",
+    "createdAt": "2026-06-16T02:40:13.332Z"
+  },
+  {
+    "id": "2158f443-6c60-4934-b677-43f8cca48c79",
+    "name": "brenda santiago",
+    "email": "ejem@gmail.com",
+    "password": "$2a$12$/CgftHOYdb7VTL4PfSCntutc8pAm6.VtG2s0HYhGN0fT85SREtL7O",
+    "verified": false,
+    "verificationToken": "dbc0ae9a-d54b-48c3-81f2-6cb4feaf1ebf",
+    "resetToken": "3e499b8c-86dc-4ef1-b997-723d5b3a3e76",
+    "resetTokenExpiry": "2026-06-18T02:06:09.492Z",
+    "createdAt": "2026-06-17T01:08:10.341Z"
+  },
+  {
+    "id": "93d336e3-6ab0-4527-8aa1-34c485b47c0f",
+    "name": "brenda santiago",
+    "email": "bns@gmail.com",
+    "password": "$2a$12$W/mZErF2NaF0M.TtJ0Yv2.PX2rilQz1quX41gNZvQ2HSJ.M5cHv3m",
+    "verified": true,
+    "verificationToken": null,
+    "resetToken": "35edb348-d262-4b26-9ed9-5b48c5206ac1",
+    "resetTokenExpiry": "2026-06-18T02:05:18.978Z",
+    "createdAt": "2026-06-17T01:36:56.337Z"
+  },
+  {
+    "id": "1464af8a-0298-4e7f-949d-d4be8d8842eb",
+    "name": "juana cortes",
+    "email": "jc@gmail.com",
+    "password": "$2a$12$UJ0jh4URtRFoZoZmIiNet.LAwit1Y32c7jZCQSno.WRyPsdSk/uHS",
+    "verified": true,
+    "verificationToken": null,
+    "resetToken": null,
+    "resetTokenExpiry": null,
+    "createdAt": "2026-06-18T01:04:31.558Z"
+  },
+  {
+    "id": "8f83734a-4913-4d44-84f3-d5b864be6db9",
+    "name": "carla montes",
+    "email": "cm@gmail.com",
+    "password": "$2a$12$O2QE1NDbpYMsIu4kzaFvv.cygr8csjctByJcP4OiVRLrG904GA0qa",
+    "verified": true,
+    "verificationToken": null,
+    "resetToken": null,
+    "resetTokenExpiry": null,
+    "createdAt": "2026-06-19T22:06:08.728Z"
+  },
+  {
+    "id": "7a28103b-b628-483d-aab3-aa24b47507ad",
+    "name": "Alexander Orellana",
+    "email": "12brayan@gmail.com",
+    "password": "$2a$12$P0jgLTG2GA58iq4U/Re.oOHVXN6QSs/z3YAY3usp9Ad7k6Ib5RF7i",
+    "role": "client",
+    "verified": true,
+    "verificationToken": null,
+    "resetToken": null,
+    "resetTokenExpiry": null,
+    "createdAt": "2026-06-21T02:12:25.007Z"
+  }
+]

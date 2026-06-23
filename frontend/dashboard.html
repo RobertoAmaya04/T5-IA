@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Iglú — Hotel Club Penguin</title>
+  <meta name="description" content="Panel de control de tu cuenta en el Hotel Club Penguin." />
+  <!-- Google Fonts para estilo Club Penguin -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="dashboard-body">
+
+  <!-- Navbar -->
+  <nav class="db-nav">
+    <div class="db-brand">
+      Club<span class="brand-accent"> Penguin Hotel</span>
+    </div>
+    <div class="db-nav-right">
+      <div class="db-user-badge">
+        <div class="avatar" id="nav-avatar">🐧</div>
+        <span class="name-text" id="nav-name">Cargando...</span>
+      </div>
+      <button class="btn-logout" id="logout-btn">Cerrar Sesión 🚪</button>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="db-main">
+
+    <!-- Welcome -->
+    <div class="db-welcome">
+      <h1>¡Bienvenido a tu Iglú, <span id="welcome-name">...</span>! 🏠</h1>
+      <p id="welcome-email">¡Tu aventura en el Hotel Club Penguin continúa!</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="db-grid">
+
+      <div class="db-card">
+        <h2>Estado de Cuenta</h2>
+        <div class="stat-row">
+          <div class="stat-icon-box si-green">✅</div>
+          <div class="stat-text">
+            <div class="stat-value">Activa</div>
+            <div class="stat-label">Email verificado</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <h2>Sesión Actual</h2>
+        <div class="stat-row">
+          <div class="stat-icon-box si-gold">🔐</div>
+          <div class="stat-text">
+            <div class="stat-value">Segura</div>
+            <div class="stat-label">Token JWT · 24h</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <h2>Miembro desde</h2>
+        <div class="stat-row">
+          <div class="stat-icon-box si-blue">📅</div>
+          <div class="stat-text">
+            <div class="stat-value" id="member-date">—</div>
+            <div class="stat-label">Fecha de registro</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Profile card -->
+    <div class="db-card">
+      <h2>Información del Perfil</h2>
+
+      <div class="profile-row">
+        <span class="profile-key">Nombre</span>
+        <span class="profile-val" id="profile-name">—</span>
+      </div>
+      <div class="profile-row">
+        <span class="profile-key">Email</span>
+        <span class="profile-val" id="profile-email">—</span>
+      </div>
+      <div class="profile-row">
+        <span class="profile-key">Estado</span>
+        <span class="profile-val">
+          <span class="badge badge-ok">✔ Verificado</span>
+        </span>
+      </div>
+      <div class="profile-row">
+        <span class="profile-key">ID de usuario</span>
+        <span class="profile-val" id="profile-id" style="font-size:0.75rem; color:var(--text-muted);">—</span>
+      </div>
+      <div class="profile-row">
+        <span class="profile-key">Registrado</span>
+        <span class="profile-val" id="profile-date">—</span>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

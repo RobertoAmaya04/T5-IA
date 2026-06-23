@@ -1,0 +1,137 @@
+[
+  {
+    "id": "hab-01",
+    "name": "Suite Iglú Deluxe",
+    "description": "Una hermosa suite de hielo con vistas espectaculares a las auroras boreales. Incluye una amplia cama king size con mantas térmicas de alta tecnología, chimenea de vapor de agua, jacuzzi polar climatizado y baño privado.",
+    "shortDescription": "Cama King, Calefacción, Chimenea de vapor, Jacuzzi polar",
+    "price": 350,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_1.png"
+  },
+  {
+    "id": "hab-02",
+    "name": "Cabaña Ventisca",
+    "description": "Cabaña rústica construida con troncos de pino alpino de alta calidad. Cuenta con dos camas matrimoniales ultra suaves rellenas de plumón de puffle, balcón privado con fogata de gas y servicio de café de puffle ilimitado.",
+    "shortDescription": "2 Camas Matrimoniales, Fogata en balcón, Café ilimitado",
+    "price": 250,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_2.png"
+  },
+  {
+    "id": "hab-03",
+    "name": "Domo Glaciar Premium",
+    "description": "Domo geodésico de cristal reforzado ubicado en la cima del glaciar más alto. Ideal para avistamiento de estrellas. Cuenta con calefacción inteligente, telescopio astronómico profesional y una cama redonda ultra cómoda.",
+    "shortDescription": "Cama Redonda, Calefacción inteligente, Telescopio, Vista al cielo",
+    "price": 500,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_3.png"
+  },
+  {
+    "id": "hab-04",
+    "name": "Refugio Ventisquero",
+    "description": "Un refugio acogedor perfecto para aventureros de la isla. Cuenta con calefacción central, escritorio de madera tallada a mano, minibar surtido con helados de fruta y baño privado con tina de aguas termales.",
+    "shortDescription": "Calefacción central, Escritorio, Minibar, Tina termal",
+    "price": 180,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_4.png"
+  },
+  {
+    "id": "hab-05",
+    "name": "Cabaña Ventisca Familiar",
+    "description": "Hermosa cabaña familiar de madera alpina en el bosque. Cuenta con tres amplias habitaciones, chimenea tradicional a leña, tina de hidromasaje en la terraza y una vista espectacular del monte Ventisca.",
+    "shortDescription": "3 Dormitorios, Chimenea, Hidromasaje exterior, Cocina equipada",
+    "price": 400,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_1.png"
+  },
+  {
+    "id": "hab-06",
+    "name": "Estudio Nieve Nueva",
+    "description": "Ideal para parejas o aventureros solitarios. Este estudio minimalista ofrece calefacción radiante en el piso, cafetera espresso automática con granos premium y un gran ventanal con vistas al patio central del hotel.",
+    "shortDescription": "Cama Queen, Calefacción radiante, Minibar, Vista al patio",
+    "price": 190,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_2.png"
+  },
+  {
+    "id": "hab-07",
+    "name": "Suite Aurora Boreal",
+    "description": "Nuestra joya del hotel. Suite en el último piso con techo completamente vidriado y retráctil para disfrutar del cielo estrellado y las auroras sin salir de la comodidad de la cama King con sábanas de seda térmica.",
+    "shortDescription": "Techo de cristal, Cama King, Jacuzzi, Champaña de cortesía",
+    "price": 600,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_3.png"
+  },
+  {
+    "id": "hab-08",
+    "name": "Refugio Ventisquero Suite",
+    "description": "La versión premium de nuestro clásico refugio. Cuenta con sala de estar independiente con sillones de cuero, minibar premium libre de costo, sauna privado integrado en el baño y balcón con telescopio.",
+    "shortDescription": "Sauna privado, Sala de estar, Minibar premium, Balcón con telescopio",
+    "price": 320,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_4.png"
+  },
+  {
+    "id": "hab-09",
+    "name": "Suite Glaciar Esmeralda",
+    "description": "Decorada con detalles en hielo teñido de verde esmeralda y luces LED ambientales. Ofrece una ambientación fantástica con cama con dosel, sistema de sonido envolvente, ducha escocesa de alta presión y chimenea ecológica.",
+    "shortDescription": "Cama dosel, Ducha escocesa, Luces LED rítmicas, Chimenea ecológica",
+    "price": 380,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_1.png"
+  },
+  {
+    "id": "hab-10",
+    "name": "Iglú Tradicional de Nieve",
+    "description": "Para quienes buscan la auténtica experiencia polar. Construido con bloques de hielo compactado a mano. Equipado con bolsas de dormir térmicas de grado expedición y fogata central simulada sin humo para tu total seguridad.",
+    "shortDescription": "Bolsas expedición, Fogata segura, Experiencia autóctona",
+    "price": 150,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_2.png"
+  },
+  {
+    "id": "hab-11",
+    "name": "Domo Geodésico Ventisca",
+    "description": "Una estructura futurista en medio del paisaje nevado. Equipado con domótica completa para controlar la temperatura, luces y cortinas desde una tableta. Incluye cama suspendida y un telescopio digital de alta gama.",
+    "shortDescription": "Control por tablet, Cama suspendida, Telescopio digital",
+    "price": 450,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_3.png"
+  },
+  {
+    "id": "hab-12",
+    "name": "Cabaña Bosque de Pinos",
+    "description": "Rodeada de pinos cargados de nieve fresca. Esta cabaña ofrece una tranquilidad inigualable. Cuenta con cocina completa de concepto abierto, estufa de hierro fundido a leña y una pequeña biblioteca con novelas clásicas.",
+    "shortDescription": "Cocina completa, Estufa de hierro, Biblioteca, Rodeada de bosque",
+    "price": 280,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_4.png"
+  },
+  {
+    "id": "hab-13",
+    "name": "Suite Nupcial de Hielo",
+    "description": "Especialmente diseñada para lunas de miel o escapadas románticas. Incluye decoraciones florales congeladas en las paredes, jacuzzi doble con sales termales aromáticas, cama con dosel de piel sintética y servicio a la habitación 24/7.",
+    "shortDescription": "Jacuzzi doble, Decoración romántica, Cama dosel, Servicio 24/7",
+    "price": 550,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_1.png"
+  },
+  {
+    "id": "hab-14",
+    "name": "Refugio del Explorador",
+    "description": "Diseñado en honor a los grandes exploradores de la isla. Cuenta con mapas históricos, detalles en bronce y madera envejecida, una cama matrimonial sumamente cómoda y una cafetera de prensa francesa con granos de origen único.",
+    "shortDescription": "Detalles antiguos, Cama matrimonial, Prensa francesa, Minibar",
+    "price": 170,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_2.png"
+  },
+  {
+    "id": "hab-15",
+    "name": "Iglú Familiar Nevado",
+    "description": "Un iglú de gran escala ideal para familias pequeñas con niños. Equipado con un área de juegos con consolas retro, dos camas matrimoniales y servicio de chocolate caliente con malvaviscos de cortesía todas las tardes.",
+    "shortDescription": "Área de videojuegos, 2 Camas, Chocolate de cortesía, Muy amplio",
+    "price": 310,
+    "status": "disponible",
+    "image": "img/habitacion_hotel_3.png"
+  }
+]

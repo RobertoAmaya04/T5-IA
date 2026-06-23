@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Iglú — Habitaciones 🛏️ — Hotel Club Penguin</title>
+  <meta name="description" content="Explora las habitaciones disponibles en el Hotel Club Penguin." />
+  <!-- Google Fonts para estilo Club Penguin -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <style>
+    /* Estilos personalizados para el listado de habitaciones en feed horizontal */
+    .rooms-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .room-horizontal-card {
+      display: flex;
+      flex-direction: row;
+      background: #ffffff;
+      color: #333333;
+      border: 4px solid var(--cp-blue-dark);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+      min-height: 200px;
+    }
+
+    .room-horizontal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2);
+      border-color: var(--cp-blue-mid);
+    }
+
+    .room-card-image-wrapper {
+      width: 35%;
+      min-width: 160px;
+      max-width: 300px;
+      position: relative;
+      background-color: #e0f2ff;
+      border-right: 4px solid var(--cp-blue-dark);
+    }
+
+    .room-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .room-card-content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .room-card-info h2 {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      color: var(--cp-blue-dark);
+      margin-bottom: 6px;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .room-card-desc {
+      font-size: 0.92rem;
+      color: #555555;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .room-card-features {
+      font-size: 0.85rem;
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 6px 12px;
+      color: #0044cc;
+      border: 1px dashed #99ccff;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .room-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      border-top: 2px solid #eef5fc;
+      padding-top: 12px;
+    }
+
+    .room-card-price {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      color: var(--cp-orange);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .room-card-price span {
+      font-size: 1rem;
+      color: #666666;
+      font-weight: normal;
+    }
+
+    .room-card-btn {
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      background: linear-gradient(180deg, #ffcc00 0%, #ff8800 100%);
+      border: 3px solid #cc7700;
+      color: #2b1a00;
+      box-shadow: 0 4px 0 #995500;
+      transition: all 0.1s ease;
+    }
+
+    .room-card-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #995500;
+    }
+
+    /* Animación de carga */
+    .spinner {
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid var(--cp-yellow);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 900px) {
+      .client-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    @media (max-width: 650px) {
+      .room-horizontal-card {
+        flex-direction: column;
+      }
+      .room-card-image-wrapper {
+        width: 100%;
+        max-width: none;
+        height: 160px;
+        border-right: none;
+        border-bottom: 4px solid var(--cp-blue-dark);
+      }
+    }
+  </style>
+</head>
+
+<body class="dashboard-body">
+
+  <!-- Navbar -->
+  <nav class="db-nav">
+    <div class="db-brand">
+      Club<span class="brand-accent"> Penguin Hotel 🐧</span>
+    </div>
+    <div class="db-nav-right">
+      <div class="db-user-badge">
+        <div class="avatar" id="nav-avatar">🐧</div>
+        <span class="name-text" id="nav-name">Cargando...</span>
+      </div>
+      <button class="btn-logout" id="logout-btn">Cerrar Sesión 🚪</button>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="db-main" style="max-width: 100%; padding: 20px 40px;">
+
+    <!-- 2 Column Layout -->
+    <div class="client-grid" style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; margin-top: 20px; width: 100%;">
+      
+      <!-- Left Column: Habitaciones Disponibles -->
+      <div class="admin-section" style="background: transparent; border: none; padding: 0; box-shadow: none;">
+        <h2 style="color: var(--cp-yellow); font-size: 1.5rem; margin-bottom: 5px; border-bottom: 3px solid var(--cp-blue-dark); padding-bottom: 8px;">Habitaciones Disponibles 🛏️</h2>
+        <p style="color: #e0f0ff; font-size: 0.9rem; margin-bottom: 15px;">Explora y reserva tu próxima aventura.</p>
+        
+        <div class="rooms-feed" id="rooms-feed-container">
+          <div class="loading-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0;">
+            <div class="spinner"></div>
+            <p style="margin-top: 15px; font-weight: 700; color: #a2c2ff;">Cargando habitaciones del hotel...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Mis Habitaciones (Reservadas) -->
+      <div class="admin-section" style="background: transparent; border: none; padding: 0; box-shadow: none;">
+        <h2 style="color: var(--cp-yellow); font-size: 1.5rem; margin-bottom: 5px; border-bottom: 3px solid var(--cp-blue-dark); padding-bottom: 8px;">Mis Habitaciones 🔑</h2>
+        <p style="color: #e0f0ff; font-size: 0.9rem; margin-bottom: 15px;">Tus reservaciones actuales.</p>
+        
+        <div class="rooms-feed" id="my-rooms-feed-container" style="gap: 15px;">
+          <div class="loading-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="js/client-dashboard.js"></script>
+</body>
+
+</html>
