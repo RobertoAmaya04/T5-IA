@@ -1,11 +1,24 @@
 {
-  // Configuración para desplegar como Cloudflare Worker de SOLO assets estáticos.
-  // Sirve la carpeta `dist/` generada por `npm run build` (Vite).
+  // ─────────────────────────────────────────────────────────────────────
+  //  Configuración autocontenida para Cloudflare Workers.
+  //  Despliega el sitio de demo (frontend estático con backend simulado)
+  //  sin necesidad de configurar nada en el panel de Cloudflare:
+  //    • El build se ejecuta solo mediante `build.command`.
+  //    • Se sirve la carpeta `dist/` generada por Vite.
+  //    • El ruteo SPA de React lo maneja `not_found_handling`.
+  //
+  //  En el panel basta con dejar los valores por defecto
+  //  (Deploy command: `npx wrangler deploy`) y el Root directory
+  //  apuntando a `frontend-react`.
+  // ─────────────────────────────────────────────────────────────────────
   "name": "t5ia",
   "compatibility_date": "2025-06-01",
+  "build": {
+    // Cloudflare ya instala dependencias automáticamente; aquí solo compilamos.
+    "command": "npm run build"
+  },
   "assets": {
     "directory": "./dist",
-    // Devuelve index.html para cualquier ruta desconocida → ruteo SPA de React.
     "not_found_handling": "single-page-application"
   }
 }
